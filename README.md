@@ -4,12 +4,12 @@
 
 1. Install `npm i --save-dev ts-package`
 2. In your package.json, set `"private": true`! This will prevent accidental publishes from the root.
-3. Create a `ts-package.ts` file (see TS Package Config for more information on this file)
+3. Create a `ts-package-config.ts` file (see TS Package Config for more information on this file)
 4. Create a publish script (see Publish Script below)
 
 ## TS Package Config
 
-Setup your ts-package project with a `ts-package.ts` file at the root of the project. **You will need to add this to tsconfig's includes!**
+Setup your ts-package project with a `ts-package-config.ts` file at the root of the project. **You will need to add this to tsconfig's includes!**
 
 ```typescript
 import { Config, BundleMap, bundlePackageJson } from 'ts-package';

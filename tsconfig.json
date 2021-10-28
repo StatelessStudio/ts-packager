@@ -21,6 +21,6 @@
 		"./example/",
 		"./src/",
 		"./test/",
-		"ts-package.ts"
+		"ts-package-config.ts"
 	]
 }

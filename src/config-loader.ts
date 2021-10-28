@@ -9,7 +9,7 @@ export interface ConfigFile {
 }
 
 export function loadConfig(cliArgs: Config, defaults: Environment): ConfigFile {
-	// Check for ts-package.ts config file
+	// Check for ts-package-config.ts config file
 	let configPath: string = cliArgs.config;
 	const configDir: string = process.cwd();
 
@@ -17,7 +17,7 @@ export function loadConfig(cliArgs: Config, defaults: Environment): ConfigFile {
 		configPath = joinPath(configDir, cliArgs.config);
 	}
 
-	// Load ts-package.ts
+	// Load ts-package-config.ts
 	let file: ConfigFile;
 
 	try {
@@ -43,7 +43,7 @@ export function loadConfig(cliArgs: Config, defaults: Environment): ConfigFile {
 
 	const fileConfig: Config = file.config;
 
-	// Check ts-package.ts
+	// Check ts-package-config.ts
 	if (typeof fileConfig !== 'object') {
 		throw new Error('Config file ' + configPath + '.config is invalid');
 	}

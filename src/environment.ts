@@ -8,7 +8,7 @@ import { overwriteEnvironment } from './utils/overwrite-environment';
  * Environment Variables Schema
  */
 export class Environment implements Config {
-	config = 'dist/ts-package.js';
+	config = 'dist/ts-package-config.js';
 	tsconfig = 'tsconfig.json';
 	buildDir = '';
 

@@ -1,6 +1,6 @@
-import { Config } from './config';
-import { BundleMap } from './bundle/bundle';
-import { bundlePackageJson } from './bundle/bundle-package-json';
+import { Config } from './src/config';
+import { BundleMap } from './src/bundle/bundle';
+import { bundlePackageJson } from './src/bundle/bundle-package-json';
 
 export const config: Config = {
 	tsconfig: 'tsconfig.json',

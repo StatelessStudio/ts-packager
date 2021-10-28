@@ -1,5 +1,6 @@
 import * as path from 'path';
-import { existsSync, copyFileSync } from 'fs';
+import { existsSync } from 'fs';
+import { copySync } from 'fs-extra';
 import { logger } from '../logger';
 import { env } from '../environment';
 
@@ -41,7 +42,7 @@ export async function bundle(files: BundleMap, outdir?: string): Promise<void> {
 			}
 
 			logger.info('Copy "' + filename + '" to "' + outputFile + '"');
-			copyFileSync(filename, outputFile);
+			copySync(filename, outputFile);
 		}
 	}
 }

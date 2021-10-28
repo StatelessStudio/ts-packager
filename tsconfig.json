@@ -20,6 +20,7 @@
 	"include": [
 		"./example/",
 		"./src/",
-		"./test/"
+		"./test/",
+		"ts-package.ts"
 	]
 }

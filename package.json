@@ -25,6 +25,7 @@
 		"coveralls": "cat ./coverage/lcov.info | coveralls"
 	},
 	"dependencies": {
+		"command-line-args": "^5.2.0",
 		"dotenv": "^8.6.0",
 		"source-map-support": "^0.5.20"
 	},

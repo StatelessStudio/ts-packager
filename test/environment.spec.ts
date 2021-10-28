@@ -5,7 +5,7 @@ describe('Environment', () => {
 		expect(env).toBeDefined();
 	});
 
-	it('has app_title key', () => {
-		expect(typeof env.APP_TITLE).toBe(typeof 'string');
+	it('has config key', () => {
+		expect(typeof env.config).toBe(typeof 'string');
 	});
 });

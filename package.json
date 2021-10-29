@@ -1,9 +1,9 @@
 {
-	"name": "ts-package",
+	"name": "ts-packager",
 	"version": "1.0.0",
 	"ts-project-version": "1.2.4",
 	"bin": {
-		"ts-package": "./bin/index.js"
+		"ts-packager": "./bin/index.js"
 	},
 	"private": "true",
 	"scripts": {

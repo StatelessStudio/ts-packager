@@ -1,3 +1,3 @@
-# ts-package
+# ts-packager
 
 ## [1.0.0] Initial Release

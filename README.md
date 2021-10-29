@@ -1,8 +1,8 @@
-# ts-package
+# ts-packager
 
 ## Installation
 
-1. Install `npm i --save-dev ts-package`
+1. Install `npm i --save-dev ts-packager`
 2. In your package.json, set `"private": true`! This will prevent accidental publishes from the root.
 3. Create a `ts-package-config.ts` file (see TS Package Config below for more information on this file)
 4. Create a publish script (see Publish Script below)
@@ -60,13 +60,13 @@ export const files: BundleMap = {
 #!/bin/bash
 npm test
 npm run build:prod
-ts-package
+ts-packager
 cd dist/src/
 npm publish
 ```
 
 ## A note on paths
 
-By default, ts-package will assume your build is written to `dist/src/`, and that the ts-package config file is compiled to `dist/ts-package-config.js`.
+By default, ts-packager will assume your build is written to `dist/src/`, and that the ts-packager config file is compiled to `dist/ts-package-config.js`.
 
 You can change this with the `--buildDir` and `--config` arguments, respectively.

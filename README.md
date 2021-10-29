@@ -1,31 +1,72 @@
 # ts-package
 
-## Development
+## Installation
 
-Run a dev test with `npm start`
+1. Install `npm i --save-dev ts-package`
+2. In your package.json, set `"private": true`! This will prevent accidental publishes from the root.
+3. Create a `ts-package-config.ts` file (see TS Package Config below for more information on this file)
+4. Create a publish script (see Publish Script below)
 
-## Running Tests
+## TS Package Config
 
-To run unit tests, `npm run test`
+Setup your ts-package project with a `ts-package-config.ts` file at the root of the project. **You will need to add this to tsconfig's includes!**
 
-## Compiling
+`ts-package-config.ts`
+```typescript
+import { Config, BundleMap, bundlePackageJson } from 'ts-package';
 
-### Debug Builds
+export const config: Config = {
+	buildDir: 'dist/src/' // Where to put the build files
+};
 
-To compile a debug build, run `npm run build:dev`. The build output will appear in the `./dist` folder.
+export const files: BundleMap = {
+	'CHANGELOG.md': true, // Copy the changelog to the build
+	'LICENSE.md': true, // Copy the license to the build
+	'README.md': true, // Copy the readme to the build
+	'package.json': bundlePackageJson // Copy the package.json to the build, removing scripts & dependencies
+};
+```
 
-### Prod Builds
+`tsconfig.json`
+```json
+{
+	"compilerOptions": {
+		"baseUrl": "./",
+		"outDir": "./dist",
+		"sourceMap": true,
+		"declaration": true,
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"target": "es6",
+		"types": ["node"],
+		"typeRoots": ["node_modules/@types"],
+		"lib": ["es2017"]
+	},
+	"exclude": [
+		"./dist/"
+	],
+	"include": [
+		"./src/",
+		"./test/",
+		"./ts-package-config.ts" // Make sure to add this file!
+	]
+}
+```
 
-To compile a production build, run `npm run build:prod`. The build output will appear in the `./dist` folder.
+## Publish Script
 
-### Clean Builds
+`publish.sh`
+```bash
+#!/bin/bash
+npm test
+npm run build:prod
+ts-package
+cd dist/src/
+npm publish
+```
 
-To generate a clean build (removes old artifacts and reruns pre&post process scripts), append `:clean` to a build script:
-- Debug: `npm run build:dev:clean`
-- Release: `npm run build:prod:clean`
+## A note on paths
 
-## More
+By default, ts-package will assume your build is written to `dist/src/`, and that the ts-package config file is compiled to `dist/ts-package-config.js`.
 
-### Generating Docs
-
-`npm run doc` and browse docs/index.html!
+You can change this with the `--buildDir` and `--config` arguments, respectively.

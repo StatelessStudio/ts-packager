@@ -2,9 +2,13 @@
 	"name": "ts-package",
 	"version": "1.0.0",
 	"ts-project-version": "1.2.4",
+	"bin": {
+		"ts-package": "./bin/index.js"
+	},
+	"private": "true",
 	"scripts": {
 		"start": "npm run dev",
-		"dev": "npm run lint && ts-node src/index.ts",
+		"dev": "npm run lint && ts-node src/main.ts",
 		"test": "npm run build:dev:clean && npm run coverage",
 		"clean": "rm -rf dist",
 		"build:dev": "npm run lint && npm run preprocess && npm run compile && npm run postprocess",
@@ -22,20 +26,22 @@
 		"coveralls": "cat ./coverage/lcov.info | coveralls"
 	},
 	"dependencies": {
+		"command-line-args": "^5.2.0",
 		"dotenv": "^8.6.0",
+		"fs-extra": "^10.0.0",
 		"source-map-support": "^0.5.20"
 	},
 	"devDependencies": {
 		"@istanbuljs/nyc-config-typescript": "^1.0.1",
-		"@types/jasmine": "^3.9.1",
-		"@types/node": "^12.20.32",
+		"@types/jasmine": "^3.10.1",
+		"@types/node": "^12.20.36",
 		"@typescript-eslint/eslint-plugin": "^4.33.0",
 		"@typescript-eslint/parser": "^4.33.0",
 		"coveralls": "^3.1.1",
 		"eslint": "^7.32.0",
-		"jasmine": "^3.9.0",
+		"jasmine": "^3.10.0",
 		"nyc": "^15.1.0",
-		"ts-node": "^10.3.0",
+		"ts-node": "^10.4.0",
 		"typedoc": "^0.21.9",
 		"typescript": "^4.4.4"
 	}

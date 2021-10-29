@@ -1,7 +1,7 @@
 {
 	"compileOnSave": false,
 	"compilerOptions": {
-		"baseUrl": "./src/",
+		"baseUrl": "./",
 		"outDir": "./dist",
 		"sourceMap": true,
 		"declaration": true,
@@ -21,6 +21,6 @@
 		"./example/",
 		"./src/",
 		"./test/",
-		"ts-package-config.ts"
+		"./ts-package-config.ts"
 	]
 }

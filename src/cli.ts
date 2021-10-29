@@ -15,10 +15,6 @@ export function getCliArgs(defaults: Environment): Config {
 			defaultValue: defaults.config
 		},
 		{
-			name: 'tsconfig',
-			defaultValue: defaults.tsconfig
-		},
-		{
 			name: 'buildDir',
 			defaultValue: defaults.buildDir
 		}

@@ -15,7 +15,6 @@ Setup your ts-package project with a `ts-package-config.ts` file at the root of 
 import { Config, BundleMap, bundlePackageJson } from 'ts-package';
 
 export const config: Config = {
-	tsconfig: 'tsconfig.json',
 	buildDir: 'dist/src/'
 };
 

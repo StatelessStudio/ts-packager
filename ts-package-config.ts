@@ -3,7 +3,6 @@ import { BundleMap } from './src/bundle/bundle';
 import { bundlePackageJson } from './src/bundle/bundle-package-json';
 
 export const config: Config = {
-	tsconfig: 'tsconfig.json',
 	buildDir: 'dist/src/'
 };
 

@@ -43,11 +43,6 @@ export function loadConfig(cliArgs: Config, defaults: Environment): ConfigFile {
 
 	const fileConfig: Config = file.config;
 
-	// Check ts-package-config.ts
-	if (typeof fileConfig !== 'object') {
-		throw new Error('Config file ' + configPath + '.config is invalid');
-	}
-
 	for (const key in fileConfig) {
 		if (!(key in defaults)) {
 			throw new Error('Unknown configuration item ' + key);

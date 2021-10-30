@@ -2,10 +2,13 @@
 	"name": "ts-packager",
 	"version": "1.0.0",
 	"ts-project-version": "1.2.4",
+	"author": "stateless-studio",
+	"description": "TypeScript npm packager",
+	"license": "MIT",
+	"private": true,
 	"bin": {
 		"ts-packager": "./bin/index.js"
 	},
-	"private": "true",
 	"scripts": {
 		"start": "npm run dev",
 		"dev": "npm run lint && ts-node src/main.ts",
@@ -43,5 +46,18 @@
 		"ts-node": "^10.4.0",
 		"typedoc": "^0.21.9",
 		"typescript": "^4.4.4"
-	}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/statelessstudio/ts-packager.git"
+	},
+	"bugs": {
+		"url": "https://github.com/statelessstudio/ts-packager/issues"
+	},
+	"homepage": "https://github.com/statelessstudio/ts-packager#readme",
+	"keywords": [
+		"typescript",
+		"npm",
+		"packager"
+	]
 }

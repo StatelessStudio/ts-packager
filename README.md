@@ -55,7 +55,7 @@ export const files: BundleMap = {
 
 ## Publish Script
 
-`publish.sh`
+`scripts/publish.sh`
 ```bash
 #!/bin/bash
 npm test

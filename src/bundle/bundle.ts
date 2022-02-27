@@ -1,7 +1,7 @@
 import * as path from 'path';
 import { existsSync } from 'fs';
 import { copySync } from 'fs-extra';
-import { logger } from '../logger';
+import { log } from '../log';
 import { env } from '../environment';
 
 export type BundleFunction = (filename, outdir) => void;
@@ -15,7 +15,7 @@ export type BundleMap = Record<string, boolean|string|BundleFunction>;
  * 	the environment buildDir
  */
 export async function bundle(files: BundleMap, outdir?: string): Promise<void> {
-	logger.info('p Bundling...');
+	log.info('p Bundling...');
 
 	if (!outdir) {
 		outdir = env.buildDir;
@@ -32,7 +32,7 @@ export async function bundle(files: BundleMap, outdir?: string): Promise<void> {
 			outputFile = path.join(outdir, filename);
 		}
 		else if (value instanceof Function) {
-			logger.info('Running callback for "' + filename + '"');
+			log.info('Running callback for "' + filename + '"');
 			value(filename, outdir);
 		}
 
@@ -41,7 +41,7 @@ export async function bundle(files: BundleMap, outdir?: string): Promise<void> {
 				throw new Error('File "' + filename + '" not found!');
 			}
 
-			logger.info('Copy "' + filename + '" to "' + outputFile + '"');
+			log.info('Copy "' + filename + '" to "' + outputFile + '"');
 			copySync(filename, outputFile);
 		}
 	}

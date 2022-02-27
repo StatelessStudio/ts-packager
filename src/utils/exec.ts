@@ -1,5 +1,5 @@
 import { exec as childProcExec } from 'child_process';
-import { logger } from '../logger';
+import { log } from '../log';
 
 /**
  * Execute a command
@@ -10,16 +10,16 @@ import { logger } from '../logger';
  */
 export async function exec(cmd: string, silent = false): Promise<unknown> {
 	return new Promise((a, r) => {
-		logger.info('p> ' + cmd);
+		log.info('p> ' + cmd);
 
 		childProcExec(cmd, (err, stdout, stderr) => {
 			if (!silent) {
 				if (stdout) {
-					logger.info(stdout);
+					log.info(stdout);
 				}
 
 				if (stderr) {
-					logger.error(stderr);
+					log.error(stderr);
 				}
 			}
 

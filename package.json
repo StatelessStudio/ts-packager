@@ -30,7 +30,6 @@
 	"dependencies": {
 		"command-line-args": "^5.2.0",
 		"fs-extra": "^10.0.0",
-		"source-map-support": "^0.5.20",
 		"ts-appconfig": "^1.0.0",
 		"ts-async-bootstrap": "^2.0.0",
 		"ts-error-handler": "^1.0.0",

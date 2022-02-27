@@ -13,7 +13,7 @@ Setup your ts-package project with a `ts-package-config.ts` file at the root of 
 
 `ts-package-config.ts`
 ```typescript
-import { Config, BundleMap, bundlePackageJson } from 'ts-package';
+import { Config, BundleMap, bundlePackageJson } from 'ts-packager';
 
 export const config: Config = {
 	buildDir: 'dist/src/' // Where to put the build files

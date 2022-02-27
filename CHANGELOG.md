@@ -3,6 +3,7 @@
 ## [1.0.2]
 
 ### Fixes
+- [Issue #5] Example ts-package-config.ts shows wrong import
 
 ## [1.0.1]
 

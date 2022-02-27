@@ -10,8 +10,7 @@ import { env } from '../src/environment';
  * Do something!
  */
 export async function example(): Promise<void> {
-	log.info('App Name: ', env.APP_TITLE);
-	log.warn('Environment: ', env.NODE_ENV);
+	log.info('Hello ' + env.buildDir);
 }
 
 bootstrap(example);

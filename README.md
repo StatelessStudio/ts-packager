@@ -13,17 +13,21 @@ Setup your ts-package project with a `ts-package-config.ts` file at the root of 
 
 `ts-package-config.ts`
 ```typescript
-import { Config, BundleMap, bundlePackageJson } from 'ts-package';
+import { Config, BundleMap, bundlePackageJson } from 'ts-packager';
 
 export const config: Config = {
 	buildDir: 'dist/src/' // Where to put the build files
 };
 
 export const files: BundleMap = {
-	'CHANGELOG.md': true, // Copy the changelog to the build
-	'LICENSE.md': true, // Copy the license to the build
-	'README.md': true, // Copy the readme to the build
-	'package.json': bundlePackageJson // Copy the package.json to the build, removing scripts & dependencies
+	 // Copy the changelog to the build
+	'CHANGELOG.md': true,
+	 // Copy the license to the build
+	'LICENSE.md': true,
+	 // Copy the readme to the build
+	'README.md': true,
+	 // Copy the package.json to the build, removing scripts & dependencies
+	'package.json': bundlePackageJson
 };
 ```
 
@@ -60,7 +64,7 @@ export const files: BundleMap = {
 #!/bin/bash
 npm test
 npm run build:prod
-ts-packager
+node_modules/.bin/ts-packager
 cd dist/src/
 npm publish
 ```

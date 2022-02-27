@@ -1,44 +1,35 @@
-import { logger } from './logger';
-import { toString } from './utils/to-string';
+/**
+ * This file bootstraps your application by running the register function
+ * 	and setting up error handling.
+ */
+import {
+	bootstrap as _bootstrap,
+	BootstrapFunction,
+	BootstrapOptions
+} from 'ts-async-bootstrap';
 
-// Source mapping
-if (!process[Symbol.for('ts-node.register.instance')]) {
-	// eslint-disable-next-line @typescript-eslint/no-var-requires
-	require('source-map-support').install({
-		environment: 'node'
-	});
-}
+import { errorHandler } from './error-handler';
+import { register } from './register';
 
-// Stack traces
-Error.stackTraceLimit = Infinity;
-const nativePrepareStackTrace = Error.prepareStackTrace;
-Error.prepareStackTrace = (err, traces) => {
-	return nativePrepareStackTrace(err, traces)
-		.split('\n')
-		.filter(line => {
-			return (
-				line &&
-				!line.includes('node_modules') &&
-				!line.includes('internal/process/')
-			);
-		})
-		.join('\n');
+/**
+ * Default bootstrapping options
+ */
+export const defaultBootstrapOptions: Partial<BootstrapOptions> = {
+	register: register,
+	errorHandler: errorHandler,
+	shouldExitOnError: true,
 };
 
 /**
- * Bootstrap a script
- *
- * @param returned The script returned promise
+ * Bootstrap a function
  */
-export function bootstrap(promise: Promise<void|Buffer|string>): void {
-	promise
-		.then(returned => {
-			if (typeof returned !== 'undefined') {
-				logger.info(toString(returned));
-			}
-		})
-		.catch(error => {
-			logger.error('ERROR: ', toString(error));
-			process.exit(error?.code ? error.code : 1);
-		});
+export function bootstrap(
+	run: BootstrapFunction,
+	options?: Partial<BootstrapOptions>
+): void {
+	_bootstrap({
+		...defaultBootstrapOptions,
+		...options,
+		run: run
+	});
 }

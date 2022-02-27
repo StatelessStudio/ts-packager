@@ -3,6 +3,7 @@
 	"version": "1.0.1",
 	"ts-project-version": "2.0.1",
 	"description": "TypeScript npm packager",
+	"private": true,
 	"bin": {
 		"ts-packager": "./bin/index.js"
 	},

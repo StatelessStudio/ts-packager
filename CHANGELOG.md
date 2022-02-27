@@ -4,6 +4,7 @@
 
 ### Fixes
 - [Issue #5] Example ts-package-config.ts shows wrong import
+- [Issue #6] Readme publish.sh should not rely on global ts-packager
 
 ## [1.0.1]
 

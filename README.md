@@ -60,7 +60,7 @@ export const files: BundleMap = {
 #!/bin/bash
 npm test
 npm run build:prod
-ts-packager
+node_modules/.bin/ts-packager
 cd dist/src/
 npm publish
 ```

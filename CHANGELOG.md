@@ -1,5 +1,9 @@
 # ts-packager
 
+## [1.0.3]
+
+### Fixes
+
 ## [1.0.2]
 
 ### Fixes

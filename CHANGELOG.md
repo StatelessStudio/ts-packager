@@ -1,5 +1,12 @@
 # ts-packager
 
+## [1.0.3]
+
+### Fixes
+- [Issue #13] [README] Lint the example
+- [Issue #12] publish.sh should chain commands, so that a lint/test failure stops the build chain
+- [Issue #11] Relative path dependencies should be updated in the output package.json
+
 ## [1.0.2]
 
 ### Fixes

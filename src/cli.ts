@@ -9,7 +9,7 @@ import { Environment } from './environment';
  * @returns Returns a new Environment object of the cli args
  */
 export function getCliArgs(defaults: Environment): Config {
-	return cli([
+	const args = cli([
 		{
 			name: 'config',
 			defaultValue: defaults.config
@@ -19,4 +19,10 @@ export function getCliArgs(defaults: Environment): Config {
 			defaultValue: defaults.buildDir
 		}
 	]);
+
+	if (args?.config?.includes('jasmine.json')) {
+		args.config = defaults.config;
+	}
+
+	return args;
 }

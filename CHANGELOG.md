@@ -3,6 +3,7 @@
 ## [1.0.3]
 
 ### Fixes
+- [Issue #11] Relative path dependencies should be updated in the output package.json
 
 ## [1.0.2]
 

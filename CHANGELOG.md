@@ -3,6 +3,7 @@
 ## [1.1.0]
 
 ### Additions
+- [Issue #19] Add support for package.json overrides
 
 ### Fixes
 - [Issue #20] publish.sh runs the build twice

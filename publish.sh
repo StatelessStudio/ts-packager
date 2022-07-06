@@ -1,6 +1,5 @@
 #!/bin/bash
-npm test &&
-npm run build:prod &&
+npm run test:prod &&
 npm run dev &&
 cd dist/src/ &&
 npm publish

@@ -21,7 +21,7 @@ export async function bundle(files: BundleMap, outdir?: string): Promise<void> {
 		outdir = env.buildDir;
 	}
 
-	for (const filename in files) {
+	const promises = Object.keys(files).map(async filename => {
 		const value: boolean|string|BundleFunction = files[filename];
 		let outputFile = null;
 
@@ -44,5 +44,7 @@ export async function bundle(files: BundleMap, outdir?: string): Promise<void> {
 			log.info('Copy "' + filename + '" to "' + outputFile + '"');
 			copySync(filename, outputFile);
 		}
-	}
+	});
+
+	await Promise.all(promises);
 }

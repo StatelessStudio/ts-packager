@@ -1,4 +1,4 @@
-import { replaceAllDoubleDots } from '../../../src/bundle/bundle-package-json';
+import { replaceAllDoubleDots } from '../../../src/utils/replace-double-dots';
 
 describe('bundle/bundle-package-json', () => {
 	it('replaces relative paths', () => {
@@ -7,8 +7,16 @@ describe('bundle/bundle-package-json', () => {
 			'dist/src/'
 		);
 
-		paths.test = paths.test.replace(/\\/g, '/');
+		expect(typeof paths).toEqual('object');
+		expect(typeof paths.test).toEqual('string');
 
-		expect(paths.test).toEqual('file:../../../test-package/dist');
+		if (typeof paths?.test === 'string') {
+			paths.test = paths.test.replace(/\\/g, '/');
+
+			expect(paths.test).toEqual('file:../../../test-package/dist');
+		}
+		else {
+			throw new Error('Expected paths.test to be string');
+		}
 	});
 });

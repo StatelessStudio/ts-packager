@@ -63,8 +63,7 @@ export const files: BundleMap = {
 `scripts/publish.sh`
 ```bash
 #!/bin/bash
-npm test &&
-npm run build:prod &&
+npm run test:prod &&
 node_modules/.bin/ts-packager &&
 cd dist/src/ &&
 npm publish

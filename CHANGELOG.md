@@ -1,5 +1,14 @@
 # ts-packager
 
+## [1.1.0]
+
+### Additions
+- [Issue #19] Add support for package.json overrides
+
+### Fixes
+- [Issue #20] publish.sh runs the build twice
+- [Issue #16] Build throws unfriendly exception if ts-package-config.ts is missing
+
 ## [1.0.3]
 
 ### Fixes

@@ -5,6 +5,7 @@
 ### Additions
 
 ### Fixes
+- [Issue #20] publish.sh runs the build twice
 
 ## [1.0.3]
 

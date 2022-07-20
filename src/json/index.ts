@@ -2,6 +2,8 @@ import { readFileSync, writeFileSync } from 'fs';
 import { join as joinPath } from 'path';
 import { JsonObject, JsonOverrides } from './json-types';
 
+export { JsonObject };
+
 /**
  * Read a JSON file
  *

@@ -74,3 +74,45 @@ npm publish
 By default, ts-packager will assume your build is written to `dist/src/`, and that the ts-packager config file is compiled to `dist/ts-package-config.js`.
 
 You can change this with the `--buildDir` and `--config` arguments, respectively.
+
+## Getting compile-time version at runtime
+
+You can setup ts-packager to compile the package.json version to the build, so that it is available at runtime:
+
+1. Create a version typescript source file (for development)
+
+`src/version.ts`
+```typescript
+// IMPORTANT: This file will be overridden at compile time
+//	to export the current package.json's version as a string,
+//	since this package.json won't be loaded dynamically by the
+//	consumer. This code is in place for development
+import { getVersion() } from 'ts-packager/version';
+
+export const version = getVersion();
+```
+
+2. Import the version file to use it
+
+`src/my-app.ts`
+```typescript
+import { version } from './version';
+
+console.log('Version: ', version);
+```
+
+will log `Version: 1.2.3`
+
+3. Add an entry to ts-packager's config to compile the package.json to the build:
+
+`ts-package-config.ts`
+```typescript
+import { writeVersionFile } from 'ts-packager/version';
+
+...
+
+export const files: BundleMap = {
+	...
+	'src/version.ts': writeVersionFile,
+};
+```
